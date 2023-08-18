@@ -20,18 +20,15 @@ class MainActivity : AppCompatActivity() {
     }
     private fun rollDice() {
         // Can't pass Views or anything by ref in kt
-        val txt: TextView = findViewById<TextView>(R.id.txtNumber)
         val img: ImageView = findViewById<ImageView>(R.id.diceImg)
-        txt.text = (Math.random()*6 + 1).toInt().toString()
-        when (txt.text) {
-            "1" -> {img.setImageResource(R.drawable.dice_1)}
-            "2" -> {img.setImageResource(R.drawable.dice_2)}
-            "3" -> {img.setImageResource(R.drawable.dice_3)}
-            "4" -> {img.setImageResource(R.drawable.dice_4)}
-            "5" -> {img.setImageResource(R.drawable.dice_5)}
-            "6" -> {img.setImageResource(R.drawable.dice_6)}
+        val randomImg = when (java.util.Random().nextInt(6)+1) {
+            1 -> {R.drawable.dice_1}
+            2 -> {R.drawable.dice_2}
+            3 -> {R.drawable.dice_3}
+            4 -> {R.drawable.dice_4}
+            5 -> {R.drawable.dice_5}
+            else -> {R.drawable.dice_6}
         }
-        Toast.makeText(this, "Updated text to ${txt.text}", Toast.LENGTH_SHORT).show()
-
+        img.setImageResource(randomImg)
     }
 }

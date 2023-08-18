@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30sp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/diceImg"
+        android:src="@drawable/empty_dice" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

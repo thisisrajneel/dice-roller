@@ -12,14 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val btn: Button = findViewById<Button>(R.id.btnRoll)
-        val txt: TextView = findViewById<TextView>(R.id.txtNumber)
-        var count = 0
-        txt.text = count.toString()
         btn.setOnClickListener {
-            //count = count+1
-            count = (Math.random()*6 + 1).toInt()
-            txt.text = count.toString()
-            Toast.makeText(this, "Updated text to $count", Toast.LENGTH_SHORT).show()
+            rollDice()
         }
+    }
+    private fun rollDice() {
+        // Can't pass Views or anything by ref in kt
+        val txt: TextView = findViewById<TextView>(R.id.txtNumber)
+        txt.text = (Math.random()*6 + 1).toInt().toString()
+        Toast.makeText(this, "Updated text to ${txt.text.toString()}", Toast.LENGTH_SHORT).show()
+
     }
 }
